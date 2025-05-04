@@ -4,6 +4,7 @@
 *.blend filter=lfs diff=lfs merge=lfs -text
 *.c4d filter=lfs diff=lfs merge=lfs -text
 *.collada filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
 *.dae filter=lfs diff=lfs merge=lfs -text
 *.dxf filter=lfs diff=lfs merge=lfs -text
 *.jas filter=lfs diff=lfs merge=lfs -text
