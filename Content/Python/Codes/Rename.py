@@ -8,13 +8,9 @@ def get_selected_content_browser_assets():
     selected_assets = editor_utility.get_selected_assets()
 
     return selected_assets
-def get_selected_content_browser_assets():
-    editor_utility = unreal.EditorUtilityLibrary()
-    selected_actors = editor_utility.get_selected_level_actors()
-
-    return selected_actors
 
 def input_name(yournewname):
+    yournewname = inputyourname
     return yournewname
 
 def generate_new_name_for_asset(asset):
@@ -29,7 +25,7 @@ def generate_new_name_for_asset(asset):
             { "type": unreal.StaticMesh, "prefix": "SM_" }
         ]
     }
-    name = inputyourname
+    name = input_name(inputyourname)
     print(f"Asset {name} is a {type(asset)}")
 
     for i in range(len(rename_config["prefixes_per_type"])):
@@ -53,7 +49,7 @@ def rename_assets(assets):
         asset_folder = unreal.Paths.get_path(asset_old_path)
 
         new_name = generate_new_name_for_asset(asset)
-        new_path = asset_folder + "/" + new_name + f"{i}"
+        new_path = asset_folder + "/" + new_name + f"_{i}"
         if new_name == old_name:
             print(f"Ignoring {old_name} as it already has the correct name")
             continue
