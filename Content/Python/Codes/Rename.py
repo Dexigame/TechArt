@@ -1,7 +1,5 @@
 import unreal
 
-global inputyourname
-
 def get_selected_content_browser_assets():
     # https://docs.unrealengine.com/5.0/en-US/PythonAPI/class/EditorUtilityLibrary.html?highlight=editorutilitylibrary#unreal.EditorUtilityLibrary
     editor_utility = unreal.EditorUtilityLibrary()
@@ -9,9 +7,7 @@ def get_selected_content_browser_assets():
 
     return selected_assets
 
-def input_name(yournewname):
-    yournewname = inputyourname
-    return yournewname
+global inputname
 
 def generate_new_name_for_asset(asset):
 
@@ -25,7 +21,9 @@ def generate_new_name_for_asset(asset):
             { "type": unreal.StaticMesh, "prefix": "SM_" }
         ]
     }
-    name = input_name(inputyourname)
+    name = inputname
+    if name == "":
+        name = asset.get_name()
     print(f"Asset {name} is a {type(asset)}")
 
     for i in range(len(rename_config["prefixes_per_type"])):
